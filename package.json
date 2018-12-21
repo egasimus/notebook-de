@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "dothot": "^0.2.1",
+    "freeport": "^1.0.5",
+    "tape": "^4.9.1"
+  },
+  "dependencies": {
+    "ws": "^6.1.2"
+  }
+}
