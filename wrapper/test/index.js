@@ -7,7 +7,9 @@ const spec = module.exports =
     : 'launches child process on first connection and streams output'
 
   , './test-subsequent'
-    : 'streams buffered output over subsequent connections' }
+    : 'streams buffered output over subsequent connections'
+
+  }
 
 if (require.main === module)
   Object.keys(spec).forEach(test=>
