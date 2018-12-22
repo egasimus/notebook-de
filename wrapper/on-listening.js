@@ -1,3 +1,5 @@
 module.exports = (state, ...args) => {
-  state.debug('listening')
+  const address = state.sockets.address()
+  state.debug('listening', address)
+  if (process.send) process.send(address.port)
 }

@@ -1,3 +1,5 @@
+require('../hot')
+
 const METHODS =
   [ 'debug'
   , 'stop' ]
@@ -30,7 +32,8 @@ function Launch (port, command) {
   state.sockets = new (require('ws').Server)({
     clientTracking: true,
     host: '127.0.0.1',
-    port })
+    port,
+    headers: { 'Access-Control-Allow-Origin': '*' } })
 
   EVENTS.forEach(event=>{
     state.sockets.on(event, (...args) => state[`on-${event}`](...args))

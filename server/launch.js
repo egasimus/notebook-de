@@ -15,4 +15,3 @@ module.exports = (current, event) => {
   proc.once('message', port => require('./communicate')(current, topic, port, client))
 
 }
-

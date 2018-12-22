@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "node server 5678"
+  },
   "devDependencies": {
     "dothot": "^0.2.1",
     "freeport": "^1.0.5",
