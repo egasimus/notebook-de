@@ -1,18 +1,12 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { createStore, applyMiddleware } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import { Provider } from 'react-redux'
-import ReduxThunk from 'redux-thunk'
-import App from './components/App'
-import reducer from './reducers'
 import './styles'
 
-document.body.innerHTML = '<div id="Root">Initializing...</div>'
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import App from './components/App'
+import store from './store'
 
-const store = createStore(
-  reducer,
-  composeWithDevTools(applyMiddleware(ReduxThunk)))
+document.body.innerHTML = '<div id="Root">Initializing...</div>'
 
 render(
   <Provider store={store}><App /></Provider>,

@@ -14,18 +14,46 @@ html, body, #Root
 body
   background #000
 
+.Workspace
+  padding-left 16em
+  &Item
+    padding 0.5em
+    margin-bottom 1em
+    white-space pre-line
+    overflow hidden
+
 .Timeline
   position fixed
   top 0
-  bottom 1.66em
+  bottom 0
   left 0
-  width 15em
+  width 16em
   background #060504
+  user-select none
+  padding 0.25em 0
+  display flex
+  flex-flow column
+
+  &Item, .Time
+    padding 0.25em 0.5em
+    line-height 1
+    flex-shrink 0
+    &:hover
+      background #201918
+      cursor pointer
+    &Command
+      font-weight bold
+
+  .Time
+    font-weight bold
+
+.FlexGrow
+  flex-grow 1
 
 .Prompt
   position fixed
   bottom 0
-  left 0
+  left 16em
   right 0
   height 1.66em
   background #060504
@@ -35,10 +63,10 @@ body
   input
     background none
     border none
-    margin 0 0 0 1em
-    padding 0
-    line-height 1.66em
-    height 1.66em
+    margin 0
+    padding 0.25em 0
+    line-height 1em
+    height 1.5em
     flex-grow 1
 
     &:focus

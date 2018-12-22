@@ -8,7 +8,6 @@ export default connect(
 
 function Prompt ({ now, cwd }) { return (
   <div className="Prompt">
-    <div>{new Date(now).toISOString()}</div>
     <div>{cwd}</div>
     <input spellCheck="false" onKeyUp={onKeyUp} />
   </div>

@@ -1,7 +1,16 @@
-export default function connect (port) {
-  console.debug('connect', port)
-  const ws = new WebSocket(`ws://localhost:${port}`)
+import { Connect, Receive } from '../reducers'
+import store from '../store'
+
+export default function connect (port, id) {
+
+  const address = `ws://localhost:${port}`
+  const ws = new WebSocket(address)
+
+  const action = Connect(id, port)
+  store.dispatch(action)
+
   ws.onmessage = event => {
-    console.log(port, event.data)
+    const action = Receive(id, event.data)
+    store.dispatch(action)
   }
 }
