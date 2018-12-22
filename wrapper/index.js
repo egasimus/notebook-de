@@ -1,11 +1,3 @@
-module.exports = Launch
-
-if (require.main === module) {
-  const port = process.argv[2]
-  const command = process.argv.slice(3).join(' ')
-  module.exports(port, command)
-}
-
 const METHODS =
   [ 'debug'
   , 'stop' ]
@@ -16,6 +8,14 @@ const EVENTS =
   , 'error'
   , 'headers'
   , 'listening' ]
+
+module.exports = Launch
+
+if (require.main === module) {
+  const port = process.argv[2]
+  const command = process.argv.slice(3).join(' ')
+  module.exports(port, command)
+}
 
 function Launch (port, command) {
 
