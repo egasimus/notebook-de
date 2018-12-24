@@ -3,4 +3,4 @@ module.exports = (state, socket) => {
   require('./streams').forEach((stream, streamIndex) => {
     require('./send-cache')(state[stream], socket)
     state.process[stream].on('data', data =>
-      require('./on-data')(state, socket, data)) }
+      require('./on-stream')(state, socket, stream, streamIndex, data)) }) }
