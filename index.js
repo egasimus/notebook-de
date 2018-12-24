@@ -6,6 +6,9 @@ import { Provider } from 'react-redux'
 import App from './components/App'
 import store from './store'
 
+import init from './client/init'
+init()
+
 document.body.innerHTML = '<div id="Root">Initializing...</div>'
 
 render(
