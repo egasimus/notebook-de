@@ -1,4 +1,6 @@
 module.exports = (state, socket) => {
   state.debug('connection', state.sockets.clients.size)
-  if (!state.started) require('./spawn')(state)
-  require('./send')(state, socket) }
+  require('./streams').forEach((stream, streamIndex) => {
+    require('./send-cache')(state[stream], socket)
+    state.process[stream].on('data', data =>
+      require('./on-data')(state, socket, data)) }
