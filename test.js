@@ -1,7 +1,6 @@
 const spec = module.exports =
   { './wrapper/test': 'Wrapper'
-  , './server/test':  'Server'
-  , './client/test':  'Client' }
+  , './server/test':  'Server' }
 
 const { join } = require('path')
 

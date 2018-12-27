@@ -1,2 +1,2 @@
-module.exports = (state, stream, chunk) => 
-  state[stream].push(chunk)
+module.exports = (cache, chunk) =>
+  cache.push(chunk)

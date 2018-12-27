@@ -4,13 +4,6 @@ const METHODS =
   [ 'debug'
   , 'stop' ]
 
-const EVENTS =
-  [ 'close'
-  , 'connection'
-  , 'error'
-  , 'headers'
-  , 'listening' ]
-
 module.exports = Launch
 
 if (require.main === module) {
@@ -35,11 +28,12 @@ function Launch (port, command) {
     port,
     headers: { 'Access-Control-Allow-Origin': '*' } })
 
-  EVENTS.forEach(event=>{
-    state.sockets.on(event, (...args) => state[`on-${event}`](...args))
-    state[`on-${event}`] = (...args) => {
-      const handler = require(`./on-${event}`)
-      return handler(state, ...args) } })
+  require('../events')(require, state, 'sockets',
+    [ 'close'
+    , 'connection'
+    , 'error'
+    , 'headers'
+    , 'listening' ])
 
   return state
 

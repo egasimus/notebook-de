@@ -4,7 +4,8 @@ function wrap (command, cb) {
   const Launch = require('..')
   require('freeport')((err, port)=>{
     const wrapper = Launch(port, command)
-    wrapper['on-listening'] = () => {
-      console.debug('listening')
+    const onSocketsListening = wrapper['on-sockets-listening']
+    wrapper['on-sockets-listening'] = (...args) => {
+      onSocketsListening(...args)
       cb(wrapper, port) } }) }
 
