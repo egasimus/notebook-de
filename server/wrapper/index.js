@@ -1,9 +1,5 @@
 require('../hot')
 
-const METHODS =
-  [ 'debug'
-  , 'stop' ]
-
 module.exports = Launch
 
 if (require.main === module) {
@@ -14,19 +10,22 @@ if (require.main === module) {
 
 function Launch (port, command) {
 
-  const state = {
-    started: false,
-    port,
-    command }
+  const WebSocketServer = require('ws').Server
 
-  METHODS.forEach(method=>
-    state[method] = (...args) => require(`./${method}`)(state, ...args))
+  const state =
+    { started: false
+    , cache: []
+    , port
+    , command
+    , sockets: new WebSocketServer(
+        { clientTracking: true
+        , host: '127.0.0.1'
+        , port
+        , headers: { 'Access-Control-Allow-Origin': '*' } }) }
 
-  state.sockets = new (require('ws').Server)({
-    clientTracking: true,
-    host: '127.0.0.1',
-    port,
-    headers: { 'Access-Control-Allow-Origin': '*' } })
+  require('../methods')(require, state,
+    [ 'debug'
+    , 'stop' ])
 
   require('../events')(require, state, 'sockets',
     [ 'close'

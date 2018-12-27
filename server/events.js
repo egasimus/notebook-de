@@ -1,6 +1,5 @@
-module.exports = (require, state, key, events) =>
-  events.forEach(event=>{
-    state[`on-${key}-${event}`] = (...args) => require(`./on-${key}-${event}`)(state, ...args)
-    state[key].on(event, (...args) => {
-      state[`on-${key}-${event}`](...args)
-    }) })
+module.exports = (_require, state, key, events) => {
+  require('./methods')(_require, state, events.map(event=>`on-${key}-${event}`))
+  events.forEach(event =>
+    state[key].on(event, (...args) =>
+      state[`on-${key}-${event}`](...args))) }

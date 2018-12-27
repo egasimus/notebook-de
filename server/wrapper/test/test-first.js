@@ -6,6 +6,6 @@ module.exports = ({ is, end }) =>
         , address = `ws://localhost:${port}`
         , ws = new WebSocket(address)
     ws.on('message', data => {
-      is(String(data).endsWith('foo\n'), true)
+      is(String(data).endsWith('foo\n\r'), true)
       wrapper.stop()
       end() }) })
