@@ -8,7 +8,7 @@ const server = fork('./server', [ '5678' ],
 
 server.once('message', port => {
   const options = { method: 'POST', hostname: 'localhost', port }
-  const command = `cd ${resolve(__dirname, 'client-react')} && npm start`
+  const command = `cd ${resolve(__dirname, 'client')} && npm start`
   const request = require('http').request(options)
   request.write(command)
   request.end()
