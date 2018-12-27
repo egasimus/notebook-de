@@ -14,11 +14,12 @@ export default connect(
 function Windows ({ timeline, topics }) { return (
   <div className="Workspace">
     {timeline.map(id=>
-      <div className="WorkspaceItem" key={id}>{
-        (!topics[id].data)
-          ? 'waiting...'
-          : <XTerm value={topics[id].data.join('')} options={options} />
-      }</div>
+      <div className="WorkspaceItem" key={id}>
+        <div className="WorkspaceItemTitle">{topics[id].started.toISOString()} {topics[id].command}</div>
+        {(!topics[id].data)
+            ? 'waiting...'
+            : <XTerm value={topics[id].data.join('')} options={options} />}
+        </div>
     )}
   </div>
 )}
