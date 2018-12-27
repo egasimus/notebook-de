@@ -3,7 +3,6 @@
   box-sizing border-box
   font-family monospace
   font-size 10px
-  color #c80
 
 html, body, #Root
   min-height 100%
@@ -16,36 +15,47 @@ body
 
 .Workspace
   padding-left 16em
+  background #111
   &Item
     padding 0 0 0.5em 0.5em
-    margin-bottom 0.25em
+    margin-bottom 0.5em
     white-space pre
     overflow hidden
-    background #111
+    background #222
     &Title
-      padding 1em 0 0.5em
+      padding 0.75em 0
+      color white
+      line-height 1
+      text-shadow 1px 1px 0 #000
+      &Date
+        color #cf0
+        font-weight bold
 
 .Timeline
   position fixed
+  z-index 1
   top 0
   bottom 0
   left 0
   width 16em
-  background #060504
   user-select none
-  padding 0.25em 0
+  padding 0.5em 0
   display flex
   flex-flow column
+  background #050505
 
   &Item, .Time
     padding 0.25em 0.5em
     line-height 1
     flex-shrink 0
+    color #cf0
     &:hover
       background #201918
       cursor pointer
     &Command
+      color white
       font-weight bold
+      word-break break-all
 
   .Time
     font-weight bold
@@ -71,6 +81,8 @@ body
     line-height 1em
     height 1.5em
     flex-grow 1
+    color white
+    font-weight bold
 
     &:focus
       outline none
