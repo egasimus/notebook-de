@@ -20,3 +20,5 @@ function tick () {
 	store.dispatch({ type: 'Tick', now: + new Date() })
 	requestAnimationFrame(tick)
 }
+
+window.__REDUX_STORE__ = store
