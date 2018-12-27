@@ -8,7 +8,7 @@ export default function init () {
   xhr.onload = () => {
     const commands = JSON.parse(xhr.responseText)
     Object.keys(commands).forEach(port=>{
-      const action = Launch(commands[port])
+      const action = Launch(commands[port].command)
       store.dispatch(action)
       connect(port, action.id) }) }
   xhr.send()
