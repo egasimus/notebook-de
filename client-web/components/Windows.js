@@ -13,12 +13,12 @@ export default connect(
 
 function Windows ({ timeline, topics }) { return (
   <div className="Workspace">
-    {timeline.map(id=>
+    {Object.keys(topics).sort().map(id=>
       <div className="WorkspaceItem" key={id}>
-        <div className="WorkspaceItemTitle">
-          <span className="WorkspaceItemTitleDate">{topics[id].started.toISOString().split('T').join(' ').slice(0,-1)} </span>
-          <span>{topics[id].command}</span>
-          <div style={{color:"#8c0"}}>PID <strong>23245</strong>, running</div>
+        <div className="WorkspaceItemTitle" style={{display:'flex'}}>
+          <div><span style={{fontWeight:'bold',color:'#8c0'}}>#{topics[id].pid}</span> {topics[id].command}</div>
+          <div className='FlexGrow' />
+          <div><span style={{fontWeight:'bold',color:'#8c0'}}>running</span> since <span className="WorkspaceItemTitleDate">{topics[id].started.toISOString().split('T').join(' ').slice(0,-1)}</span></div>
         </div>
         {(!topics[id].data)
             ? 'waiting...'

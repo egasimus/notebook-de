@@ -10,6 +10,5 @@ export default function init () {
     Object.keys(commands).forEach(port=>{
       const action = Launch(commands[port].command)
       store.dispatch(action)
-      connect(port, action.id) }) }
-  xhr.send()
-}
+      connect({ port, pid: commands[port].pid }, action.id) }) }
+  xhr.send() }

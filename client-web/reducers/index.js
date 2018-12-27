@@ -6,7 +6,7 @@ export const Tick = () => ({ type: 'Tick', now: +new Date() })
 
 export const Launch = (command) => ({ type: 'Launch', id: generate(), started: new Date(), command })
 
-export const Connect = (id, port) => ({ type: 'Connect', id, port })
+export const Connect = (id, port, pid) => ({ type: 'Connect', id, port, pid })
 
 export const Receive = (id, data) => ({ type: 'Receive', id, data })
 
