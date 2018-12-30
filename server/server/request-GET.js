@@ -1,5 +1,7 @@
 module.exports = (state, request, response) => {
-  response.writeHead(200, {'Access-Control-Allow-Origin': '*'})
+  response.writeHead(200,
+    { 'Access-Control-Allow-Origin': '*'
+    , 'Content-Type': 'application/json' })
   response.write(
     JSON.stringify(
       Object.keys(state.children).reduce((acc, port)=>

@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=NBDE
+Exec=~/Code/nbde/start-web
+Type=Application

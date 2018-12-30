@@ -1,7 +1,9 @@
 const { fork } = require('child_process')
 
 module.exports = (state, request, response) => {
-  response.writeHead(200, {'Access-Control-Allow-Origin': '*'})
+  response.writeHead(200,
+    { 'Access-Control-Allow-Origin': '*'
+    , 'Content-Type': 'application/json' })
   let command = ''
   request.on('data', data => command += data)
   request.on('end', () => { require('freeport')((err, port) => {
