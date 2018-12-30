@@ -3,6 +3,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --hot --open --mode development",
+    "dev": "webpack-dev-server --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -19,7 +20,9 @@
     "react": "^16.5.2",
     "react-debounce-render": "^5.0.0",
     "react-dom": "^16.5.2",
+    "react-icons": "^3.2.2",
     "react-redux": "^5.0.7",
+    "react-resizable": "^1.7.5",
     "react-xterm": "git+https://github.com/farfromrefug/react-xterm.git",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.5",
