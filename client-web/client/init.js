@@ -1,5 +1,5 @@
 import connect from './connect'
-import { Launch } from '../reducers'
+import { Launch, FatalError } from '../reducers'
 import store from '../store'
 
 export default function init () {
@@ -11,4 +11,6 @@ export default function init () {
       const action = Launch(commands[port].command)
       store.dispatch(action)
       connect({ port, pid: commands[port].pid }, action.id) }) }
+  xhr.onerror = () => {
+    store.dispatch(FatalError()) }
   xhr.send() }

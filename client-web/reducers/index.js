@@ -10,11 +10,15 @@ export const Connect = (id, port, pid) => ({ type: 'Connect', id, port, pid })
 
 export const Receive = (id, data) => ({ type: 'Receive', id, data })
 
+export const FatalError = (message) => ({ type: 'FatalError', message })
+
 const INITIAL_STATE =
 
   { now:    + new Date()
   , start:  + new Date()
   , latest: + new Date()
+
+  , error: null
 
   , timeline: []
   , topics:   {} }
@@ -48,6 +52,13 @@ function Reducer (state = INITIAL_STATE, action) {
     newState = {
       ...state,
       topics: { ...newState.topics, [action.id]: { ...newState.topics[action.id], data: [ ...newState.topics[action.id].data||[], action.data ] } }
+    }
+  }
+
+  if (type === 'FatalError') {
+    newState = {
+      ...state,
+      error: action.error
     }
   }
 
