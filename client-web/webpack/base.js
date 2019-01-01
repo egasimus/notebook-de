@@ -1,11 +1,5 @@
-const HtmlWebpack = require('html-webpack-plugin')
-
 module.exports = {
-
-  entry: './index.js',
-
   resolve: { extensions: [ '.js', '.styl' ] },
-
   module: {
     rules: [
       {
@@ -26,10 +20,6 @@ module.exports = {
         use: [ 'style-loader', 'css-loader', 'stylus-loader' ]
       }
     ]
-  },
-
-  plugins: [
-    new HtmlWebpack({ inject: true })
-  ]
-
+  }
 }
+

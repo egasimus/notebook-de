@@ -1,16 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import launch from '../client/launch'
+import { Row, Label, Input } from './platform/web'
+import launch from '../api/launch'
 
 export default connect(
   ({ now, cwd }) => ({ now, cwd })
 )(Prompt)
 
 function Prompt ({ now, cwd }) { return (
-  <div className="Prompt">
-    <div>{cwd}</div>
-    <input spellCheck="false" onKeyUp={onKeyUp} />
-  </div>
+  <Row className="Prompt">
+    <Label>{cwd}</Label>
+    <Input onKeyUp={onKeyUp} />
+  </Row>
 )}
 
 function onKeyUp (event) {

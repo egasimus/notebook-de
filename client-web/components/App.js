@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { AppRoot, Column, Row } from './platform/web'
 import Timeline from './Timeline'
 import Workspace from './Workspace'
 import Prompt from './Prompt'
@@ -7,11 +8,13 @@ import Prompt from './Prompt'
 export default App
 
 function App () { return (
-  <div className="App FlexColumn">
-    <div className="FlexRow">
-      <Workspace className="FlexGrow" />
-      <Timeline />
-    </div>
-    <Prompt />
-  </div>
+  <AppRoot>
+    <Column>
+      <Row>
+        <Workspace className="FlexGrow" />
+        <Timeline />
+      </Row>
+      <Prompt />
+    </Column>
+  </AppRoot>
 )}
