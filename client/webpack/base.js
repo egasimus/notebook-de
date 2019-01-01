@@ -1,5 +1,9 @@
+const { DefinePlugin } = require('webpack')
 module.exports = {
-  resolve: { extensions: [ '.js', '.styl' ] },
+  resolve:
+    { extensions: [ '.js', '.styl' ] },
+  plugins:
+    [ new DefinePlugin({'process.env.API_URI': '"http://localhost:5678"' }) ],
   module: {
     rules: [
       {
@@ -26,6 +30,6 @@ module.exports = {
         use: [ 'style-loader', 'css-loader', 'stylus-loader' ]
       }
     ]
-  }
+  },
 }
 

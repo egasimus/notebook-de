@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Row, Label, Input } from './platform/web'
+import { Row, Label, Input } from './platform'
 import launch from '../api/launch'
 
 export default connect(
@@ -9,7 +9,7 @@ export default connect(
 
 function Prompt ({ now, cwd }) { return (
   <Row className="Prompt">
-    <Label>{cwd}</Label>
+    <Label value={cwd} />
     <Input onKeyUp={onKeyUp} />
   </Row>
 )}

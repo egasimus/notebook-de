@@ -16,8 +16,8 @@ export function Row ({ className, children }) {
   return <div className={`FlexRow ${className}`}>{ children }</div>
 }
 
-export function Label ({ className, children }) {
-  return <div className={`Label ${className}`}>{ children }</div>
+export function Label ({ className, value }) {
+  return <div className={`Label ${className}`}>{ value }</div>
 }
 
 export function Input ({ className, onKeyUp }) {

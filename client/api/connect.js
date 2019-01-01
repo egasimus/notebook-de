@@ -13,4 +13,5 @@ export default function connect ({ pid, port }, id) {
     const action = Receive(id, event.data)
     store.dispatch(action)
   }
+
 }

@@ -1,6 +1,5 @@
 import React from 'react'
-
-import { AppRoot, Column, Row } from './platform/web'
+import { AppRoot, Column, Row } from './platform'
 import Timeline from './Timeline'
 import Workspace from './Workspace'
 import Prompt from './Prompt'

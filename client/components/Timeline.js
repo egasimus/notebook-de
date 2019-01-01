@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Column, Spacer, Label } from './platform/web'
+import { Column, Spacer, Label } from './platform'
 import TimelineItem from './TimelineItem'
 
 export default connect(
@@ -11,6 +11,6 @@ function Timeline ({ now, start, latest, timeline, topics }) { return (
   <Column className="Timeline">
     {timeline.map(id=><TimelineItem key={id} date={topics[id].started.toISOString()} command={topics[id].command} />)}
     <Spacer />
-    <Label className="Time">{new Date(now).toISOString()}</Label>
+    <Label className="Time" value={new Date(now).toISOString()} />
   </Column>
 ) }

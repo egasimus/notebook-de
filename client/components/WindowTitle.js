@@ -1,12 +1,12 @@
 import React from 'react'
-import { IoMdRefresh, IoIosArrowUp, IoMdClose } from 'react-icons/io'
-import { Column, Row, Spacer } from './platform/web'
+// import { IoMdRefresh, IoIosArrowUp, IoMdClose } from 'react-icons/io'
+import { Column, Row, Spacer, Label } from './platform'
 
 export default function WindowTitle ({ pid, command, started }) { return (
   <Row className="WorkspaceItemTitle">
     <Column>
-      <div><span style={{fontWeight:'bold',color:'#8c0'}}>#{pid}</span> {command}</div>
-      <div><span style={{fontWeight:'bold',color:'#8c0'}}>running</span> since <span className="WorkspaceItemTitleDate">{started.toISOString().split('T').join(' ').slice(0,-1)}</span></div>
+      <Label value={`#${pid} ${command}`} />
+      <Label value={`running since ${started.toISOString().split('T').join(' ').slice(0,-1)}`} />
     </Column>
     <Spacer />
   </Row>

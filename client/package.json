@@ -2,8 +2,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --open --mode development --config webpack/web.js",
-    "dev": "webpack-dev-server --hot",
+    "web": "webpack-dev-server --hot --open --mode development --config webpack/web.js",
+    "gtk": "webpack --config webpack/gtk.js && gjs dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -20,6 +20,7 @@
     "react": "^16.5.2",
     "react-debounce-render": "^5.0.0",
     "react-dom": "^16.5.2",
+    "react-gtk": "git+https://github.com/selaux/react-gtk.git",
     "react-icons": "^3.2.2",
     "react-redux": "^5.0.7",
     "react-resizable": "^1.7.5",
@@ -27,6 +28,7 @@
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.5",
     "redux-thunk": "^2.3.0",
+    "request": "^2.88.0",
     "shortid": "^2.2.14",
     "sockette": "^2.0.0",
     "style-loader": "^0.23.1",

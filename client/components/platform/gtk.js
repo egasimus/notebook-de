@@ -1,17 +1,33 @@
 import React from 'react'
 
 export function AppRoot ({ className, children }) {
-  return <gtk-window className={className}>{ children }</gtk-window>
+  return <gtk-window>{ children }</gtk-window>
 }
 
 export function Column ({ className, children }) {
-  return <gtk-vbox className={className}>{ children }</gtk-vbox>
+  return <gtk-vbox>{ children }</gtk-vbox>
 }
 
 export function Row ({ className, children }) {
-  return <gtk-hbox className={className}>{ children }</gtk-hbox>
+  return <gtk-hbox>{ children }</gtk-hbox>
 }
 
-export function Label ({ className, children }) {
-  return <gtk-label className={className}>{ children }</gtk-label>
+export function Label ({ className, value }) {
+  return <gtk-label label={String(value)} />
+}
+
+export function Input () {
+  return <gtk-entry />
+}
+
+export function Resizable () {
+  return null
+}
+
+export function Spacer () {
+  return null
+}
+
+export function Terminal () {
+  return null
 }
