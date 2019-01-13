@@ -1,7 +1,5 @@
-import blessed from 'blessed'
-import { render } from 'react-blessed'
 export default gui => {
-  const screen = blessed.screen({ autoPadding: true, smartCSR: true })
+  console.log('init tui unui')
+  const screen = require('blessed').screen({ autoPadding: true, smartCSR: true })
   screen.key(['q'], (ch, key) => process.exit(0))
-  render(gui, screen) }
-
+  require('react-blessed/dist/index.js').render(gui, screen) }

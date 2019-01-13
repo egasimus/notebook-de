@@ -4,22 +4,31 @@ const { resolve } = require('path')
 
 module.exports = env => ({
 
+  target:
+    env.PLATFORM === 'tui' ? 'node' : 'web',
+
+  node:
+    { __dirname: true },
+
+  output:
+    { filename: `app-${env.PLATFORM}.js`
+    , path: resolve(__dirname, 'dist') },
+
   resolve:
-    { extensions: [ '.js', '.styl' ] },
+    { extensions: [ '.js', '.mjs', '.styl' ] },
 
   entry:
-    './main.js',
+    [ 'babel-polyfill', './main' ],
 
   plugins:
     [ ...(env.PLATFORM === 'web' ? [new HtmlWebpackPlugin({ inject: true })] : [])
     , new DefinePlugin({'process.env.API_URI': '"http://localhost:5678"' })
     , new NormalModuleReplacementPlugin(/^\$PLATFORM\/(.+)$/, resource=>{
-        console.log(resource.request, env.PLATFORM)
         const newRequest = resolve(
-          __dirname, '..', 'platform', env.PLATFORM,
+          __dirname, 'platform', env.PLATFORM,
           resource.request.slice('$PLATFORM/'.length))
-        console.debug(resource.request, '=>', newRequest)
-        resource.request = newRequest }) ],
+        console.debug(resource.request, '+', env.PLATFORM, '=>', newRequest)
+        resource.request = newRequest + '.js' }) ],
 
   module: {
     rules: [
@@ -27,7 +36,10 @@ module.exports = env => ({
       { test:   /\.js\.map$/
       , loader: 'ignore-loader' },
 
-      { test:    /\.js$/,
+      { test:   /\.node$/
+      , loader: 'node-loader' },
+
+      { test:    /\.m?js$/,
         exclude: /node_modules/,
         use:
         { loader: 'babel-loader'

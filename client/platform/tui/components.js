@@ -24,26 +24,12 @@ export function Input ({ className, onKeyUp }) {
   return <element />
 }
 
-import { Resizable as _Resizable } from 'react-resizable'
-import 'react-resizable/css/styles.css'
-
 export function Resizable (props) { return (
-  <_Resizable {...Object.assign({}, props, { children: undefined })}>
-    <div>
-      { props.children } 
-    </div>
-  </_Resizable>
+  <element>{ props.children }</element>
 )}
 
-import { XTerm } from 'react-xterm'
-import 'xterm/src/xterm.css'
-const addons  = [ 'fit' ]
-    , options = { convertEol: true, fontSize: 10 }//, rendererType: 'dom' }
-
 export function Terminal ({ data }) { return (
-  (!!data)
-    ? <XTerm value={data.join('')} options={options} addons={addons} />
-    : 'waiting...'
+  <element>Terminal</element>
 ) }
 
 
