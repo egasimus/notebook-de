@@ -2,8 +2,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "web": "webpack-dev-server --hot --open --mode development --config webpack/web.js",
-    "gtk": "webpack --config webpack/gtk.js && gjs dist/app.js",
+    "web": "webpack-dev-server --env.PLATFORM web --hot --mode development --config webpack/base.js",
+    "gtk": "webpack --env.PLATFORM gtk --mode=development --config webpack/base.js && gjs -d dist/app-gtk.js",
+    "tui": "webpack --env.PLATFORM tui --mode=development --config webpack/base.js && node dist/app-tui.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -38,5 +39,11 @@
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.14",
     "webpack-merge": "^4.1.5"
+  },
+  "dependencies": {
+    "blessed": "^0.1.81",
+    "react-blessed": "^0.5.0",
+    "request-promise": "^4.2.2",
+    "styled-components": "^4.1.3"
   }
 }

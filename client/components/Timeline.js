@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Column, Spacer, Label } from './platform'
+import { Column, Spacer, Label } from '$PLATFORM/components'
 import TimelineItem from './TimelineItem'
 
 export default connect(

@@ -13,3 +13,4 @@ export function POST (data) {
     xhr.onerror = e => reject(e)
     xhr.open('POST', process.env.API_URI)
     xhr.send(data) }) }
+

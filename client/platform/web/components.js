@@ -45,3 +45,4 @@ export function Terminal ({ data }) { return (
     ? <XTerm value={data.join('')} options={options} addons={addons} />
     : 'waiting...'
 ) }
+

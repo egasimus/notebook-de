@@ -1,4 +1,4 @@
-import { GET } from './platform'
+import { GET } from '$PLATFORM/api'
 import connect from './connect'
 import { Launch, FatalError } from '../reducers'
 import store from '../store'

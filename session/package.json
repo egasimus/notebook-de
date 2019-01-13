@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "web": "node src/start-web.js",
+    "gtk": "node src/start-gtk.js",
+    "electron": "node src/start-electron.js"
+  },
   "dependencies": {
     "electron": "^4.0.0",
     "freeport": "^1.0.5"

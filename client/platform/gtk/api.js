@@ -4,7 +4,7 @@ export function GET () {
     const session = new SessionAsync()
     Session.prototype.add_feature.call(session, new ProxyResolverDefault())
     const method = 'GET'
-    const request = Message.new(method, uri)
+    const request = Message.new(method, process.env.API_URI)
     request.connect('got_headers', message => {})
     request.connect('got_chunk',   message => {})
     session.queue_message(request, (session, message) => {
@@ -19,7 +19,7 @@ export function POST (data) {
     const session = new SessionAsync()
     Session.prototype.add_feature.call(session, new ProxyResolverDefault())
     const method = 'GET'
-    const request = Message.new(method, uri)
+    const request = Message.new(method, process.env.API_URI)
     request.connect('got_headers', message => {})
     request.connect('got_chunk',   message => {})
     session.queue_message(request, (session, message) => {
@@ -27,3 +27,4 @@ export function POST (data) {
     })
   })
 }
+

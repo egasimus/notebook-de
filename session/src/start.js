@@ -7,7 +7,7 @@ require('freeport')((err, port)=>{
   startServer(port)
 })
 
-function startServer (port) {
+function startServer (port, cb) {
 
   const options = { cwd: resolve(__dirname, 'server'), stdio: 'inherit' }
   const server = require('../server/server')(port)

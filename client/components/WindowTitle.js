@@ -1,6 +1,6 @@
 import React from 'react'
 // import { IoMdRefresh, IoIosArrowUp, IoMdClose } from 'react-icons/io'
-import { Column, Row, Spacer, Label } from './platform'
+import { Column, Row, Spacer, Label } from '$PLATFORM/components'
 
 export default function WindowTitle ({ pid, command, started }) { return (
   <Row className="WorkspaceItemTitle">

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Column, Label } from './platform'
+import { Column, Label } from '$PLATFORM/components'
 
 export default function TimelineItem ({ date, command }) { return (
   <Column className="TimelineItem">

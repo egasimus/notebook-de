@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Column, Resizable, Terminal } from './platform'
+import { Column, Resizable, Terminal } from '$PLATFORM/components'
 import WindowTitle from './WindowTitle'
 
 export default connect(

@@ -1,4 +1,4 @@
-import { POST } from './platform'
+import { POST } from '$PLATFORM/api'
 import connect from './connect'
 import { Launch } from '../reducers'
 import store from '../store'

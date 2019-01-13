@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Row, Label, Input } from './platform'
+import { Row, Label, Input } from '$PLATFORM/components'
 import launch from '../api/launch'
 
 export default connect(
